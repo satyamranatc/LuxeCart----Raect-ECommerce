@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
 import NavBar from "./Components/Navbar.jsx"
@@ -14,6 +14,7 @@ import Cart from "./Pages/Cart.jsx"
 
 
 export default function App() {
+  let [Cart_Products, set_Cart_Products] = useState([]);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
       <BrowserRouter>
@@ -26,8 +27,8 @@ export default function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/category" element={<Category />} />
               <Route path="/subproducts" element={<SubProducts />} />
-              <Route path="/productdetails/:id" element={<ProductDetails />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/productdetails/:id" element={<ProductDetails Cart_Products = {Cart_Products} set_Cart_Products = {set_Cart_Products} />} />
+              <Route path="/cart" element={<Cart Cart_Products = {Cart_Products} />} />
             </Routes>
         <Fotter />
           </main>

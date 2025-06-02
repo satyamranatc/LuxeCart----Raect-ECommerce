@@ -10,8 +10,10 @@ import {
   Search,
   SlidersHorizontal
 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Products() {
+  let navigate = useNavigate()
   const [productList, setProductList] = useState([])
   const [viewMode, setViewMode] = useState('grid')
 
@@ -32,7 +34,7 @@ export default function Products() {
 
   const handleProductClick = (itemId) => {
     console.log(`Navigate to product details: ${itemId}`)
-    // navigate(`/productdetails/${itemId}`)
+    navigate(`/productdetails/${itemId}`)
   }
 
   return (
