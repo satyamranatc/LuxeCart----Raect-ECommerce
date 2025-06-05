@@ -12,9 +12,10 @@ import {
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Products() {
+export default function Products({Search,Cart_Products, set_Cart_Products}) {
   let navigate = useNavigate()
   const [productList, setProductList] = useState([])
+  const [productListFiltered, setProductListFiltered] = useState([])
   const [viewMode, setViewMode] = useState('grid')
 
 
@@ -25,12 +26,29 @@ export default function Products() {
         const data = await response.json()
         console.log(data.products)
         setProductList(data.products)
+        setProductListFiltered(data.products)
       } catch (error) {
         console.error("Error fetching products:", error)
       }
     }
     getData()
   }, [])
+
+
+  useEffect(()=>{
+    const filteredProducts = productList.filter((product) => product.title.toLowerCase().includes(Search.toLowerCase()))
+    setProductListFiltered(filteredProducts)
+    if (Search === "")
+    {
+      setProductListFiltered(productList)
+    }
+  },[Search])
+
+
+  function handleCart(e)
+  {
+    set_Cart_Products([...Cart_Products, e])
+  }
 
   const handleProductClick = (itemId) => {
     console.log(`Navigate to product details: ${itemId}`)
@@ -62,7 +80,7 @@ export default function Products() {
             ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' 
             : 'grid-cols-1'
         }`}>
-          {productList.map((item) => (
+          {productListFiltered.length > 0 ? productListFiltered.map((item) => (
             <div 
               key={item.id} 
               className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
@@ -156,18 +174,24 @@ export default function Products() {
                   >
                     Buy Now
                   </button>
-                  <button className="w-full px-4 py-3 border-2 border-purple-600 text-purple-600 rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-all duration-200 flex items-center justify-center space-x-2">
+                  <button onClick={() => handleCart(item)} className="w-full px-4 py-3 border-2 border-purple-600 text-purple-600 rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-all duration-200 flex items-center justify-center space-x-2">
                     <ShoppingCart className="w-5 h-5" />
                     <span>Add To Cart</span>
                   </button>
                 </div>
               </div>
             </div>
-          ))}
+          )):
+          (
+            <div className="text-center py-16">
+              <p className="text-gray-600">No products found.</p>
+            </div>
+          )
+          }
         </div>
 
         {/* Loading State */}
-        {productList.length === 0 && (
+        {productListFiltered.length === 0 && (
           <div className="text-center py-16">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
             <p className="text-gray-600">Loading amazing products...</p>
@@ -175,7 +199,7 @@ export default function Products() {
         )}
 
         {/* Load More Button */}
-        {productList.length > 0 && (
+        {productListFiltered.length > 0 && (
           <div className="text-center mt-12">
             <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold hover:shadow-xl transition-all duration-200 hover:scale-105">
               Load More Products

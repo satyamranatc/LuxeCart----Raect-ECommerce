@@ -17,10 +17,13 @@ import {
 } from 'lucide-react'
 
 // NavBar Component
-export default function NavBar() {
+export default function NavBar({set_Search,Cart_Products}) {
     const [isSearchFocused, setIsSearchFocused] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+    let CartUniqueData = new Set(Cart_Products);
+    
+        
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-lg">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,6 +55,7 @@ export default function NavBar() {
                                 className="w-full pl-12 pr-4 py-3 bg-gray-50/80 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 placeholder-gray-400"
                                 onFocus={() => setIsSearchFocused(true)}
                                 onBlur={() => setIsSearchFocused(false)}
+                                onChange={(e) => set_Search(e.target.value)}
                             />
                         </div>
                     </div>
@@ -74,11 +78,11 @@ export default function NavBar() {
                                 Cart
                             </span>
                             <span className="absolute -top-1 -right-1 w-5 h-5 bg-purple-600 text-white text-xs rounded-full flex items-center justify-center font-bold">
-                                3
+                                {CartUniqueData.size}
                             </span>
                         </Link>
 
-                        <Link className="flex items-center space-x-2 px-4 py-2 rounded-xl hover:bg-purple-50 transition-all duration-200 group">
+                        <Link to={"/account"} className="flex items-center space-x-2 px-4 py-2 rounded-xl hover:bg-purple-50 transition-all duration-200 group">
                             <User className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
                             <span className="text-sm font-medium text-gray-700 group-hover:text-purple-600 transition-colors">
                                 Account
