@@ -11,7 +11,7 @@
 ## 📸 Screenshots
 
 > Coming soon...
-> *(You can paste screenshots of Home Page, Product Details, Cart, etc.)*
+
 
 ---
 
@@ -72,7 +72,7 @@ LuxeCart/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/LuxeCart.git
+git clone https://github.com/satyamranatc/LuxeCart----Raect-ECommerce
 cd LuxeCart
 
 # 2. Install dependencies
@@ -117,7 +117,7 @@ This app uses **DummyJSON** for fake e-commerce data.
 ## 👨‍💻 Author
 
 **Satyam Rana**
-Co-founder @ [The Prime Step](https://www.justdial.com/Indore/The-Prime-Step)
+From [The Prime Step](https://www.justdial.com/Indore/The-Prime-Step)
 Tech Educator | Full-Stack Dev | AI Learner
 
 ---
