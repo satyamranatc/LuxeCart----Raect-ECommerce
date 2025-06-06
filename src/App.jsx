@@ -28,7 +28,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products Search = {Search}  Cart_Products = {Cart_Products} set_Cart_Products = {set_Cart_Products} />} />
               <Route path="/category" element={<Category />} />
-              <Route path="/subproducts" element={<SubProducts />} />
+              <Route path="/productsBy/:category" element={<SubProducts />} />
               <Route path="/productdetails/:id" element={<ProductDetails Cart_Products = {Cart_Products} set_Cart_Products = {set_Cart_Products} />} />
               <Route path="/cart" element={<Cart Cart_Products = {Cart_Products} />} />
               <Route path="/account" element={<Account />} />

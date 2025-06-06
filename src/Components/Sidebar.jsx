@@ -25,7 +25,7 @@ export default function Sidebar() {
   ]
 
   return (
-    <aside className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white/90 backdrop-blur-xl border-r border-gray-200/50 shadow-xl z-40 transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'}`}>
+    <aside className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white/90 backdrop-blur-xl border-r border-gray-200/50 shadow-xl z-40 transition-all duration-300 ${isCollapsed ? 'w-32' : 'w-64'}`}>
       <div className="p-4">
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}

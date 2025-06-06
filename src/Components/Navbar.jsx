@@ -46,7 +46,7 @@ export default function NavBar({set_Search,Cart_Products}) {
                     {/* Search Bar - Desktop */}
                     <div className="hidden md:flex flex-1 max-w-lg mx-8">
                         <div className={`relative w-full transition-all duration-300 ${isSearchFocused ? 'scale-105' : ''}`}>
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <div className="absolute inset-y-0 right-3 pl-4 flex items-center pointer-events-none">
                                 <Search className={`w-5 h-5 transition-colors duration-200 ${isSearchFocused ? 'text-purple-500' : 'text-gray-400'}`} />
                             </div>
                             <input

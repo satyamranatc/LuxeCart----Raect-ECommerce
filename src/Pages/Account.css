@@ -2,7 +2,7 @@
 
 /* Container for the entire tabs component */
 .react-tabs {
-  max-width: 400px;
+  max-width: 500px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 12px;
@@ -16,8 +16,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 /* Individual tab */
@@ -34,7 +34,7 @@
   padding: 1rem 1.5rem;
   border: none;
   background: transparent;
-  color: #6c757d;
+  color: #6b7280;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -42,18 +42,18 @@
 }
 
 .react-tabs__tab:hover button {
-  background: #e9ecef;
-  color: #495057;
+  background: #f3f4f6;
+  color: #374151;
 }
 
 /* Active tab */
 .react-tabs__tab--selected button {
-  background: #007bff;
+  background: linear-gradient(to right, #9333ea, #ec4899);
   color: white;
 }
 
 .react-tabs__tab--selected:hover button {
-  background: #0056b3;
+  background: linear-gradient(to right, #7c3aed, #db2777);
 }
 
 /* Tab panel container */
@@ -79,7 +79,7 @@ input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid #e5e7eb;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -90,31 +90,32 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
 }
 
 input::placeholder {
-  color: #6c757d;
+  color: #6b7280;
 }
 
 /* Submit button styles */
 form button {
   padding: 0.75rem 1.5rem;
-  background: #007bff;
+  background: linear-gradient(to right, #9333ea, #ec4899);
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+  transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
 
 form button:hover {
-  background: #0056b3;
+  background: linear-gradient(to right, #7c3aed, #db2777);
   transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2);
 }
 
 form button:active {
