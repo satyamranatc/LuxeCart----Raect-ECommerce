@@ -7,7 +7,7 @@ import {
   ShoppingCart
 } from 'lucide-react'
 
-export default function SubProducts() {
+export default function SubProducts({Search, Cart_Products, set_Cart_Products}) {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
