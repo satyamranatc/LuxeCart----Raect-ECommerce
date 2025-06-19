@@ -38,7 +38,7 @@ export default function NavBar({set_Search,Cart_Products}) {
                                 <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                                     LUXECART
                                 </h2>
-                                <p className="text-xs text-gray-500 -mt-1">Shop The Best</p>
+                                <p className="text-xs text-gray-500 -mt-1">Shop From The Best</p>
                             </div>
                         </div>
                     </div>
